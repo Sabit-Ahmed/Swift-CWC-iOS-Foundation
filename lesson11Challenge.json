@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Pan",
+        "toppings": [
+            "Mozarella",
+            "Chicken",
+            "Peppers"
+            ]
+            
+    },
+    {
+        "name": "Italian",
+        "toppings": [
+            "Cheddar",
+            "Beef",
+            "Black Olive"
+            ]
+    },
+    {
+        "name": "Mexican",
+        "toppings": [
+            "Butter",
+            "Tuna",
+            "Chilly"
+            ]
+    }
+]

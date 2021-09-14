@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Sphagetti",
+        "cuisine": "Japan"
+    },
+    {
+        "name": "Chowmin",
+        "cuisine": "Chinese"
+    },
+    {
+        "name": "Burger",
+        "cuisine": "America"
+    }
+]

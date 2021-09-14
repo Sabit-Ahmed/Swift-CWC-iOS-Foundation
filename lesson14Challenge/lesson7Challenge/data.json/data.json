@@ -1,0 +1,31 @@
+
+[
+    {
+        "name": "Deluxe",
+        "image": "deluxe",
+        "toppings": [
+            "Mozarella",
+            "Chicken",
+            "Peppers"
+            ]
+            
+    },
+    {
+        "name": "Hawaiian",
+        "image": "hawaiian",
+        "toppings": [
+            "Cheddar",
+            "Beef",
+            "Black Olive"
+            ]
+    },
+    {
+        "name": "Meatlovers",
+        "image": "meatlovers",
+        "toppings": [
+            "Butter",
+            "Tuna",
+            "Chilly"
+            ]
+    }
+]
