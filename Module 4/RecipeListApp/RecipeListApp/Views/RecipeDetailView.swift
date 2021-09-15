@@ -26,8 +26,8 @@ struct RecipeDetailView: View {
                         .padding(.vertical, 5.0)
                     
                     // MARK: Ingredients
-                    ForEach(recipe.ingredients, id: \.self) { r in
-                        Text("* " + r)
+                    ForEach(recipe.ingredients) { r in
+                        Text("* " + r.name)
                             
                     }
                     .padding(.bottom, -2.0)
