@@ -17,6 +17,7 @@
 		232B53E326F0DEFE0092C7D5 /* RecipeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232B53E226F0DEFE0092C7D5 /* RecipeTabView.swift */; };
 		2383A80A26EB760D004484CF /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2383A80926EB760D004484CF /* RecipeDetailView.swift */; };
 		23A13FCB26F227AD006C1AF3 /* RecipeListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A13FCA26F227AD006C1AF3 /* RecipeListApp.swift */; };
+		23A13FCD26F22D87006C1AF3 /* RecipeFeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A13FCC26F22D87006C1AF3 /* RecipeFeaturedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		232B53E226F0DEFE0092C7D5 /* RecipeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTabView.swift; sourceTree = "<group>"; };
 		2383A80926EB760D004484CF /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		23A13FCA26F227AD006C1AF3 /* RecipeListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListApp.swift; sourceTree = "<group>"; };
+		23A13FCC26F22D87006C1AF3 /* RecipeFeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFeaturedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				23053E2226EA5596005C7CDC /* RecipeListView.swift */,
 				2383A80926EB760D004484CF /* RecipeDetailView.swift */,
 				232B53E226F0DEFE0092C7D5 /* RecipeTabView.swift */,
+				23A13FCC26F22D87006C1AF3 /* RecipeFeaturedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				23A13FCB26F227AD006C1AF3 /* RecipeListApp.swift in Sources */,
 				23053E2326EA5596005C7CDC /* RecipeListView.swift in Sources */,
 				23053E3B26EA5D77005C7CDC /* DataService.swift in Sources */,
+				23A13FCD26F22D87006C1AF3 /* RecipeFeaturedView.swift in Sources */,
 				232B53E326F0DEFE0092C7D5 /* RecipeTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
