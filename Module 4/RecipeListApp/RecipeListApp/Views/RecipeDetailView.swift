@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RecipeDetailView: View {
+    
+    @State private var selectedServingSize = 4
     var recipe:Recipe
     
     var body: some View {
@@ -25,9 +27,26 @@ struct RecipeDetailView: View {
                         .fontWeight(.bold)
                         .padding(.vertical, 5.0)
                     
+                    
+                    // MARK: Serving Size Picker
+                    VStack(alignment: .leading) {
+                        Text("Select your serving size:")
+                        
+                        Picker("", selection: $selectedServingSize) {
+                            Text("2").tag(2)
+                            Text("4").tag(4)
+                            Text("6").tag(6)
+                            Text("8").tag(8)
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                        .frame(width: 160)
+                    }
+                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                    
+                    
                     // MARK: Ingredients
                     ForEach(recipe.ingredients) { r in
-                        Text("* " + r.name)
+                        Text("• " + RecipeModel.getPortions(ingredients: r, recipeServings: recipe.servings, targetServings: selectedServingSize) + r.name)
                             
                     }
                     .padding(.bottom, -2.0)
