@@ -20,6 +20,13 @@ struct RecipeDetailView: View {
                     .resizable()
                     .scaledToFill()
                 
+                // MARK: Recipe Title
+                Text(recipe.name)
+                    .bold()
+                    .font(.largeTitle)
+                    .padding(.top, 0)
+                    .padding(.leading, 15)
+                
                 VStack(alignment: .leading){
                     // MARK: Recipe Title
                     Text("Ingredients")
@@ -74,7 +81,7 @@ struct RecipeDetailView: View {
             }
             
         }
-        .navigationTitle(recipe.name)
+        
     }
 }
 
