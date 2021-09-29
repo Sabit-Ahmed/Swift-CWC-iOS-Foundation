@@ -23,14 +23,14 @@ struct RecipeDetailView: View {
                 // MARK: Recipe Title
                 Text(recipe.name)
                     .bold()
-                    .font(.largeTitle)
+                    .font(Font.custom("Avenir Heavy", size: 30))
                     .padding(.top, 0)
                     .padding(.leading, 15)
                 
                 VStack(alignment: .leading){
                     // MARK: Recipe Title
                     Text("Ingredients")
-                        .font(.headline)
+                        .font(Font.custom("Avenir Heavy", size: 16))
                         .fontWeight(.bold)
                         .padding(.vertical, 5.0)
                     
@@ -38,6 +38,7 @@ struct RecipeDetailView: View {
                     // MARK: Serving Size Picker
                     VStack(alignment: .leading) {
                         Text("Select your serving size:")
+                            .font(Font.custom("Avenir", size: 15))
                         
                         Picker("", selection: $selectedServingSize) {
                             Text("2").tag(2)
@@ -45,6 +46,7 @@ struct RecipeDetailView: View {
                             Text("6").tag(6)
                             Text("8").tag(8)
                         }
+                        .font(Font.custom("Avenir", size: 15))
                         .pickerStyle(SegmentedPickerStyle())
                         .frame(width: 160)
                     }
@@ -54,6 +56,7 @@ struct RecipeDetailView: View {
                     // MARK: Ingredients
                     ForEach(recipe.ingredients) { r in
                         Text("• " + RecipeModel.getPortions(ingredients: r, recipeServings: recipe.servings, targetServings: selectedServingSize) + " " + r.name.lowercased())
+                            .font(Font.custom("Avenir", size: 15))
                             
                     }
                     .padding(.bottom, -2.0)
@@ -66,13 +69,14 @@ struct RecipeDetailView: View {
                 VStack(alignment: .leading){
                     // MARK: Directions
                     Text("Directions")
-                        .font(.headline)
+                        .font(Font.custom("Avenir Heavy", size: 16))
                         .fontWeight(.bold)
                         .padding(.vertical, 5.0)
                     
                     ForEach(0..<recipe.directions.count, id:\.self){ r in
                         Text(String(r+1) + ": " + recipe.directions[r])
                             .padding(.bottom, 5)
+                            .font(Font.custom("Avenir", size: 15))
                     }
                 
                 }
