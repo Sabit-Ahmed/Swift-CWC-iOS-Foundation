@@ -17,14 +17,62 @@ class RecipeModel: ObservableObject {
     
     static func getPortions(ingredients:Ingredients, recipeServings:Int, targetServings:Int) ->String {
         
-        // Get the single serving size by multiplying the denominator with the Recipe serving size
+        var portion = ""
+        var numerator = ingredients.num ?? 1
+        var denominator = ingredients.denom ?? 1
+        var wholePortions = 0
         
-        // Get the target portion by multiplying numerator with target serving size
+        if ingredients.num != nil {
+            // Get the single serving size by multiplying the denominator with the Recipe serving size
+            denominator *= recipeServings
+            
+            // Get the target portion by multiplying numerator with target serving size
+            numerator *= targetServings
+            
+            // Reduce fraction by greatest common divisor
+            let divisor = Rational.greatestCommonDevisor(numerator, denominator)
+            numerator /= divisor
+            denominator /= divisor
+            
+            if numerator >= denominator{
+                // Calculate whole portions
+                wholePortions += numerator/denominator
+                
+                // Calculate new numerator after generating whole portions
+                numerator %= denominator
+                
+                // Assign to portion strings
+                portion += String(wholePortions)
+            }
+            
+            // Express the remainder as a fraction
+            if numerator > 0 {
+                portion += wholePortions > 0 ? " " : ""
+                portion += "\(numerator)/\(denominator)"
+            }
+            
+        }
         
-        // Reduce fraction by greatest common divisor
+        if var unit = ingredients.unit {
+            portion += ingredients.num == nil && ingredients.denom == nil ? "" : " "
+            
+            if wholePortions > 1 {
+                if unit.suffix(1) == "ch" {
+                    unit += "es"
+                }
+                else if unit.suffix(1) == "f" {
+                    unit = String(unit.dropLast())
+                    unit += "ves"
+                }
+                else {
+                    unit += "s"
+                }
+            }
+            
+            return portion + unit
+        }
         
-        // Express the remainder as a fraction 
         
-        return String(targetServings)
+        return portion
     }
 }

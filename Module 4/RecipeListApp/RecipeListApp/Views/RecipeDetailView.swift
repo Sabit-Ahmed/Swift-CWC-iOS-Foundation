@@ -46,7 +46,7 @@ struct RecipeDetailView: View {
                     
                     // MARK: Ingredients
                     ForEach(recipe.ingredients) { r in
-                        Text("• " + RecipeModel.getPortions(ingredients: r, recipeServings: recipe.servings, targetServings: selectedServingSize) + r.name)
+                        Text("• " + RecipeModel.getPortions(ingredients: r, recipeServings: recipe.servings, targetServings: selectedServingSize) + " " + r.name.lowercased())
                             
                     }
                     .padding(.bottom, -2.0)
