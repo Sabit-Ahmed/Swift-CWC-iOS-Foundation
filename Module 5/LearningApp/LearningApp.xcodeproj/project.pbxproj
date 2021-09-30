@@ -15,6 +15,8 @@
 		233DFA222705C60200EBE5B7 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 233DFA202705C60200EBE5B7 /* data.json */; };
 		233DFA232705C60200EBE5B7 /* style.html in Resources */ = {isa = PBXBuildFile; fileRef = 233DFA212705C60200EBE5B7 /* style.html */; };
 		236C66BB2705DFD0007984E9 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236C66BA2705DFD0007984E9 /* Module.swift */; };
+		236C66BD27060E9C007984E9 /* HomeViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236C66BC27060E9C007984E9 /* HomeViewRow.swift */; };
+		236C66BF2706158F007984E9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236C66BE2706158F007984E9 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		233DFA202705C60200EBE5B7 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		233DFA212705C60200EBE5B7 /* style.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = style.html; sourceTree = "<group>"; };
 		236C66BA2705DFD0007984E9 /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
+		236C66BC27060E9C007984E9 /* HomeViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewRow.swift; sourceTree = "<group>"; };
+		236C66BE2706158F007984E9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				233DF9E92705B43B00EBE5B7 /* HomeView.swift */,
+				236C66BC27060E9C007984E9 /* HomeViewRow.swift */,
+				236C66BE2706158F007984E9 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -193,6 +199,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				233DF9EA2705B43B00EBE5B7 /* HomeView.swift in Sources */,
+				236C66BD27060E9C007984E9 /* HomeViewRow.swift in Sources */,
+				236C66BF2706158F007984E9 /* ContentView.swift in Sources */,
 				236C66BB2705DFD0007984E9 /* Module.swift in Sources */,
 				233DF9E82705B43B00EBE5B7 /* LearningApp.swift in Sources */,
 				233DFA1F2705B9F100EBE5B7 /* ContentModel.swift in Sources */,
