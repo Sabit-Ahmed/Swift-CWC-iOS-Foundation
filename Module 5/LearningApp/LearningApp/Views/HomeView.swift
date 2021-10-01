@@ -25,7 +25,10 @@ struct HomeView: View {
                                 // MARK: Learning Card
                                 
                                 NavigationLink (
-                                    destination: ContentView(),
+                                    destination: ContentView()
+                                        .onAppear(perform: {
+                                            model.beginModule(module.id)
+                                        }),
                                     label: {
                                         HomeViewRow(image: module.content.image, title: "Learn \(module.category)", description: module.content.description, count: "\(module.content.lessons.count) Lessons", time: module.content.time)
                                     })
@@ -37,6 +40,7 @@ struct HomeView: View {
                             
                         }
                     }
+                    .accentColor(.black)
                     .padding()
                 }
             }
