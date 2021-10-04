@@ -11,9 +11,11 @@ class ContentModel: ObservableObject {
     @Published var modules = [Module]()
     @Published var currentModule: Module?
     var currentModuleIndex = 0
-    
+    // Set the current lesson
     @Published var currentLesson: Lesson?
     var currentLessonIndex = 0
+    // Set the lesson explanation
+    @Published var lessonDescription = NSAttributedString()
     
     var styleData: Data?
     
@@ -77,17 +79,9 @@ class ContentModel: ObservableObject {
             currentLessonIndex = lessonIndex
         }
         
-        
-//        for index in 0..<currentModule!.content.lessons.count {
-//            if lessonIndex == currentModule!.content.lessons[index].id {
-//                currentLessonIndex = index
-//                break
-//            }
-//        }
-        
         // Set the current lesson
         currentLesson = currentModule?.content.lessons[currentLessonIndex]
-        
+        lessonDescription = addStyling(currentLesson!.explanation)
     }
     
     func hasNextLesson() -> Bool {
@@ -99,11 +93,33 @@ class ContentModel: ObservableObject {
         
         if currentModuleIndex < currentModule!.content.lessons.count {
             currentLesson = currentModule?.content.lessons[currentLessonIndex]
+            lessonDescription = addStyling(currentLesson!.explanation)
         }
         else {
             currentLessonIndex = 0
             currentLesson = nil
         }
+    }
+    
+    // MARK: - Code styling helper
+    private func addStyling(_ htmlString:String) -> NSAttributedString {
+        var resultString = NSAttributedString()
+        var data = Data()
+        
+        // Add styling data
+        if styleData != nil {
+            data.append(styleData!)
+        }
+        
+        // Add html data
+        data.append(Data(htmlString.utf8))
+        
+        // Convert to the attributed string
+        if let attributedString = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+            resultString = attributedString
+        }
+        
+        return resultString
     }
     
 }
