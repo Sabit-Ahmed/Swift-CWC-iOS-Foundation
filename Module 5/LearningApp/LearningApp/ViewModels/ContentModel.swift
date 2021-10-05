@@ -8,15 +8,24 @@
 import Foundation
 
 class ContentModel: ObservableObject {
+    // List of modules
     @Published var modules = [Module]()
+    
+    // Set the current module
     @Published var currentModule: Module?
     var currentModuleIndex = 0
+    
     // Set the current lesson
     @Published var currentLesson: Lesson?
     var currentLessonIndex = 0
+    
     // Set the lesson explanation
     @Published var lessonDescription = NSAttributedString()
     
+    // Set the current selected index
+    @Published var currentContentSelected: Int?
+    
+    // Set the type of style data
     var styleData: Data?
     
     init() {
