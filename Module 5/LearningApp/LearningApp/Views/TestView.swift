@@ -9,17 +9,88 @@ import SwiftUI
 
 struct TestView: View {
     @EnvironmentObject var model: ContentModel
+    @State var selectedAnswerIndex: Int?
+    @State var numCorrect = 0
+    @State var submitted = false
     
     var body: some View {
         if model.currentQuestion != nil {
-            VStack {
+            VStack(alignment: .leading) {
                 // Question number
                 Text("Qustion \(model.currentQuestionIndex + 1) of \(model.currentModule?.test.questions.count ?? 0)")
+                    .padding(.leading, 20)
+                
                 // Question
                 CodeTextView()
+                    .padding(.horizontal, 20)
+                
                 // Answer
+                ScrollView {
+                    VStack {
+                        ForEach(0..<model.currentQuestion!.answers.count, id: \.self) {index in
+
+                            Button(action: {
+                                // Change the answer button color into grey if selected
+                                selectedAnswerIndex = index
+                                
+                            }, label: {
+                                ZStack {
+                                    if submitted == false {
+                                        RectangleCard(color: index == selectedAnswerIndex ? Color.gray : Color.white)
+                                    }
+                                    else {
+                                        // If user selects right answer
+                                        if index == selectedAnswerIndex && index == model.currentQuestion?.correctIndex {
+                                            RectangleCard(color: Color.green)
+                                        }
+                                        // If user selects wrong answer
+                                        else if index == selectedAnswerIndex && index != model.currentQuestion?.correctIndex {
+                                            RectangleCard(color: Color.red)
+                                        }
+                                        // Actual right answer hwich will always be green background
+                                        else if index == model.currentQuestion?.correctIndex {
+                                            RectangleCard(color: Color.green)
+                                        }
+                                        // Rest of the options will be white color
+                                        else {
+                                            RectangleCard(color: Color.white)
+                                        }
+                                    }
+             
+                                    Text(model.currentQuestion!.answers[index])
+                                }
+                        })
+                            
+                        }
+                    }
+                    .accentColor(.black)
+                    .padding()
+                    .disabled(submitted)
+                }
                 
                 // Button
+                Button(action: {
+                    
+                    // Set the current index number
+                    submitted = true
+                    
+                    if selectedAnswerIndex == model.currentQuestion?.correctIndex {
+                        // Increase the number for the correct answer
+                        numCorrect += 1
+                        
+                    }
+                    
+                }, label: {
+                    ZStack {
+                        RectangleCard(color: Color.green)
+                        
+                        Text("Submit")
+                            .bold()
+                            .foregroundColor(.white)
+                    }
+                    .padding()
+                })
+                .disabled(selectedAnswerIndex == nil)
             }
             .navigationBarTitle("\(model.currentModule?.category ?? "") Test")
         }
