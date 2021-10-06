@@ -12,6 +12,20 @@ struct TestView: View {
     @State var selectedAnswerIndex: Int?
     @State var numCorrect = 0
     @State var submitted = false
+    var buttonString: String {
+        if submitted == true {
+            if model.currentQuestionIndex + 1 == model.currentModule?.test.questions.count {
+                return "Finish"
+            }
+            else {
+                return "Next"
+            }
+            
+        }
+        else {
+            return "Submit"
+        }
+    }
     
     var body: some View {
         if model.currentQuestion != nil {
@@ -71,12 +85,27 @@ struct TestView: View {
                 // Button
                 Button(action: {
                     
-                    // Set the current index number
-                    submitted = true
-                    
-                    if selectedAnswerIndex == model.currentQuestion?.correctIndex {
-                        // Increase the number for the correct answer
-                        numCorrect += 1
+                    if submitted == true {
+          
+                        // If the answer is already submitted, go to the next question
+                        model.nextTest()
+                        
+                        // Reset Properties
+                        submitted = false
+                        selectedAnswerIndex = nil
+                        
+                    }
+                    else {
+                        // Set submitted to true if button is clicked
+                        submitted = true
+                        
+                        if selectedAnswerIndex == model.currentQuestion?.correctIndex {
+                            // Increase the number for the correct answer
+                            numCorrect += 1
+                            
+                        }
+                        
+                        
                         
                     }
                     
@@ -84,7 +113,7 @@ struct TestView: View {
                     ZStack {
                         RectangleCard(color: Color.green)
                         
-                        Text("Submit")
+                        Text(buttonString)
                             .bold()
                             .foregroundColor(.white)
                     }

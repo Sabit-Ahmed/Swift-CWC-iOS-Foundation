@@ -88,14 +88,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "2434E5BE-3F85-4CCC-BBF7-C0E5BBD04868"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LearningApp/Views/TestView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -120,7 +120,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B0C64480-B771-49B7-9B03-D42C1B89EF92"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LearningApp/Views/TestView.swift"
@@ -144,7 +144,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "11"
                   endingLineNumber = "11"
-                  offsetFromSymbolStart = "108">
+                  offsetFromSymbolStart = "104">
                </Location>
                <Location
                   uuid = "B0C64480-B771-49B7-9B03-D42C1B89EF92 - 7aa637c584950480"
@@ -159,7 +159,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "11"
                   endingLineNumber = "11"
-                  offsetFromSymbolStart = "108">
+                  offsetFromSymbolStart = "104">
                </Location>
                <Location
                   uuid = "B0C64480-B771-49B7-9B03-D42C1B89EF92 - 7452c8acfac8b197"
@@ -174,9 +174,25 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "11"
                   endingLineNumber = "11"
-                  offsetFromSymbolStart = "32">
+                  offsetFromSymbolStart = "60">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9AA587D6-F85D-460D-9FA4-E98E1E391B53"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LearningApp/Views/TestView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
