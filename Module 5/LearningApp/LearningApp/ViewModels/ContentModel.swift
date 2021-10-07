@@ -111,8 +111,12 @@ class ContentModel: ObservableObject {
                 // Decode json
                 let modules = try jsonDecoder.decode([Module].self, from: data!)
                 
-                // Append the p[arsed data into modules array
-                self.modules += modules
+                // Update view code in the main thread using async
+                DispatchQueue.main.async {
+                    // Append the p[arsed data into modules array
+                    self.modules += modules
+                }
+                
             }
             catch {
                 // Couldn't parse the json data
