@@ -145,7 +145,7 @@ class ContentModel: ObservableObject {
     }
     
     func beginLesson(_ lessonIndex: Int) {
-        
+     
         // Check if the lesson index is in range
         if lessonIndex < currentModule!.content.lessons.count {
             currentLessonIndex = lessonIndex
@@ -157,6 +157,11 @@ class ContentModel: ObservableObject {
     }
     
     func hasNextLesson() -> Bool {
+        
+        guard currentModule != nil else {
+            return false
+        }
+        
         return currentLessonIndex + 1 < currentModule!.content.lessons.count
     }
     
