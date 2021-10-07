@@ -31,6 +31,7 @@ class ContentModel: ObservableObject {
     
     // Set the current selected index for tests
     @Published var currentTestSelected: Int?
+    
     // Set the type of style data
     var styleData: Data?
     
@@ -130,7 +131,7 @@ class ContentModel: ObservableObject {
         }
     }
     
-    func nextTest() {
+    func nextQuestion() {
         currentQuestionIndex += 1
         
         if currentQuestionIndex < currentModule!.test.questions.count {

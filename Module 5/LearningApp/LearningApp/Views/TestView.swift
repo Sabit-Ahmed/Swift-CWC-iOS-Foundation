@@ -12,6 +12,9 @@ struct TestView: View {
     @State var selectedAnswerIndex: Int?
     @State var numCorrect = 0
     @State var submitted = false
+    @State var showResults = false
+    
+    // Dynamic button string
     var buttonString: String {
         if submitted == true {
             if model.currentQuestionIndex + 1 == model.currentModule?.test.questions.count {
@@ -28,7 +31,7 @@ struct TestView: View {
     }
     
     var body: some View {
-        if model.currentQuestion != nil {
+        if model.currentQuestion != nil && showResults == false {
             VStack(alignment: .leading) {
                 // Question number
                 Text("Qustion \(model.currentQuestionIndex + 1) of \(model.currentModule?.test.questions.count ?? 0)")
@@ -86,14 +89,19 @@ struct TestView: View {
                 Button(action: {
                     
                     if submitted == true {
-          
-                        // If the answer is already submitted, go to the next question
-                        model.nextTest()
                         
-                        // Reset Properties
-                        submitted = false
-                        selectedAnswerIndex = nil
-                        
+                        if model.currentQuestionIndex + 1 == model.currentModule?.test.questions.count {
+                            showResults = true
+                        }
+                        else {
+                            // If the answer is already submitted, go to the next question
+                            model.nextQuestion()
+                            
+                            // Reset Properties
+                            submitted = false
+                            selectedAnswerIndex = nil
+                        }
+           
                     }
                     else {
                         // Set submitted to true if button is clicked
@@ -122,6 +130,10 @@ struct TestView: View {
                 .disabled(selectedAnswerIndex == nil)
             }
             .navigationBarTitle("\(model.currentModule?.category ?? "") Test")
+        }
+        else if showResults == true {
+            // If current question is nil, we show the result view
+            TestResultView(numCorrect: numCorrect)
         }
         else {
             ProgressView()
